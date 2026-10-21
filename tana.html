@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tana Hotel | Bahir Dar, Ethiopia</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <!-- Clear, keyword-rich title -->
+  <title>Tana Hotel | Lake Tana Waterfront Resort in Bahir Dar, Ethiopia</title>
+
+  <!-- Description snippet that appears below the title in search results -->
+  <meta name="description" content="Official website of Tana Hotel in Bahir Dar, Ethiopia. Located on the shores of Lake Tana featuring lakefront suites, lush botanical gardens, and Nile boat tours." />
+
+  <!-- Target keywords for search crawlers -->
+  <meta name="keywords" content="Tana Hotel, Tana Hotel Bahir Dar, Lake Tana hotel, Bahir Dar accommodation, Blue Nile Ethiopia hotel" />
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Linked Stylesheet -->
+  <link rel="stylesheet" href="tana.css" />
+</head>
+<body>
+
+  <!-- Top Notification / Announcement Bar -->
+  <aside class="top-bar">
+    <div class="container top-bar-content">
+      <div class="top-contact">
+        <span><i class="fa-solid fa-location-dot"></i> Shore of Lake Tana, Bahir Dar, Ethiopia</span>
+        <span><i class="fa-solid fa-phone"></i> +251 58 220 0230</span>
+      </div>
+      <div class="top-controls">
+        <label for="currency-select" class="sr-only">Currency</label>
+        <div class="currency-toggle">
+          <i class="fa-solid fa-coins"></i>
+          <select id="currency-select" aria-label="Select Currency">
+            <option value="USD">USD ($)</option>
+            <option value="ETB" selected>ETB (Br)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Navigation Header -->
+  <header class="main-header" id="navbar">
+    <div class="container nav-container">
+      <a href="#" class="brand-logo" onclick="navigateTo('home')">
+        <span class="logo-title">TANA HOTEL</span>
+        <span class="logo-sub">BAHIR DAR &bull; EST. LAKE SANCTUARY</span>
+      </a>
+
+      <!-- Desktop Nav Links (3 Pages) -->
+      <nav class="nav-links">
+        <button class="nav-item active" data-page="home" onclick="navigateTo('home')">Home</button>
+        <button class="nav-item" data-page="rooms" onclick="navigateTo('rooms')">Rooms &amp; Suites</button>
+        <button class="nav-item" data-page="booking" onclick="navigateTo('booking')">Reservations &amp; Tours</button>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn btn-primary" onclick="openDirectBooking()">Book Stay</button>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <button class="mobile-close" id="mobile-close"><i class="fa-solid fa-xmark"></i></button>
+    <a href="#" onclick="navigateTo('home'); toggleMobileMenu();">Home</a>
+    <a href="#" onclick="navigateTo('rooms'); toggleMobileMenu();">Rooms &amp; Suites</a>
+    <a href="#" onclick="navigateTo('booking'); toggleMobileMenu();">Reservations &amp; Tours</a>
+    <div class="mobile-currency">
+      <span>Currency:</span>
+      <button class="btn btn-sm btn-outline" onclick="setCurrency('ETB')">ETB (Br)</button>
+      <button class="btn btn-sm btn-outline" onclick="setCurrency('USD')">USD ($)</button>
+    </div>
+  </div>
+
+  <!-- Main Multi-Page Container -->
+  <main id="app-content">
+
+    <!-- ================= PAGE 1: HOME ================= -->
+    <section id="page-home" class="page-view active">
+      <!-- Hero Section -->
+      <header class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-bg" style="background-image: url('OIP (1).webp');"></div>
+        
+        <div class="container hero-content">
+          <div class="badge-pill"><i class="fa-solid fa-water"></i> On the Shores of Lake Tana</div>
+          <h1>Timeless Ethiopian Serenity &amp; Lakeside Splendor</h1>
+          <p>Where the headwaters of the Blue Nile meet world-class Ethiopian hospitality, lush tropical gardens, and historic island monasteries.</p>
+
+          <!-- Quick Search Bar -->
+          <div class="hero-booking-bar">
+            <div class="input-cell">
+              <label><i class="fa-regular fa-calendar"></i> Check-In</label>
+              <input type="date" id="hero-checkin" />
+            </div>
+            <div class="input-cell">
+              <label><i class="fa-regular fa-calendar-check"></i> Check-Out</label>
+              <input type="date" id="hero-checkout" />
+            </div>
+            <div class="input-cell">
+              <label><i class="fa-solid fa-user-group"></i> Guests</label>
+              <select id="hero-guests">
+                <option value="1">1 Adult</option>
+                <option value="2" selected>2 Adults</option>
+                <option value="3">3 Adults</option>
+                <option value="4">Family (4+)</option>
+              </select>
+            </div>
+            <button class="btn btn-gold btn-block" onclick="startSearchFromHero()">
+              Find Best Rates
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Highlights / Features Grid -->
+      <section class="section container">
+        <div class="section-header">
+          <span class="sub-title">A HAVEN IN BAHIR DAR</span>
+          <h2>The Tana Experience</h2>
+          <p>Immerse yourself in nature, Ethiopian heritage, and lakeside calm.</p>
+        </div>
+
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="feature-img-wrapper">
+              <img src="tana-hotel.jpg" alt="Botanical Gardens Walkway" />
+            </div>
+            <div class="feature-info">
+              <i class="fa-solid fa-tree feature-icon"></i>
+              <h3>Lush Tropical Walkways</h3>
+              <p>Stroll through historic landscaped gardens alive with native birds, palm groves, and fragrant eucalyptus.</p>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-img-wrapper">
+              <img src="OIP.webp" alt="Authentic Ethiopian Handwoven Interior" />
+            </div>
+            <div class="feature-info">
+              <i class="fa-solid fa-palette feature-icon"></i>
+              <h3>Authentic Cultural Decor</h3>
+              <p>Hand-crafted local fabrics, traditional Amhara woven wall tapestries, and hand-carved woodwork in every room.</p>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-img-wrapper">
+              <img src="OIP (1).webp" alt="Illuminated Evening Courtyard" />
+            </div>
+            <div class="feature-info">
+              <i class="fa-solid fa-champagne-glasses feature-icon"></i>
+              <h3>Evening Sunset Terrace</h3>
+              <p>Watch golden sunsets reflect across Lake Tana while enjoying traditional Ethiopian coffee ceremonies and fresh fish.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Live Experience Showcase (Buna Ceremony & Boat Excursions) -->
+      <section class="section bg-light">
+        <div class="container highlight-split">
+          <div class="split-content">
+            <span class="sub-title">AUTHENTIC LIVING</span>
+            <h2>Daily Ethiopian Buna Ceremony &amp; Nile Excursions</h2>
+            <p>Every afternoon at Tana Hotel, experience the aroma of freshly roasted green coffee beans, frankincense, and traditional popcorn prepared right on the garden terrace.</p>
+            <ul class="check-list">
+              <li><i class="fa-solid fa-check"></i> Direct hotel jetty for private boat tours to Ura Kidane Mehret monastery</li>
+              <li><i class="fa-solid fa-check"></i> Day trips arranged directly to the dramatic Blue Nile Falls (Tis Abay)</li>
+              <li><i class="fa-solid fa-check"></i> Fresh Lake Tana fish (*Nile Tilapia*) prepared by expert local chefs</li>
+              <li><i class="fa-solid fa-check"></i> High-speed Wi-Fi throughout all rooms and lush outdoor lounges</li>
+            </ul>
+            <button class="btn btn-primary" onclick="navigateTo('booking')">Explore Excursions</button>
+          </div>
+          <div class="split-visual">
+            <img src="tana-hotel.jpg" alt="Tana Hotel garden pathways" class="rounded-shadow main-visual" />
+            <div class="floating-badge">
+              <i class="fa-solid fa-compass"></i>
+              <div>
+                <strong>100% Lakefront</strong>
+                <span>Direct Jetty Access</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Featured Room Preview Banner -->
+      <section class="section container">
+        <div class="cta-banner">
+          <div class="cta-text">
+            <h2>Ready to Relax by Lake Tana?</h2>
+            <p>Book online today to secure free airport shuttle from Bahir Dar Airport (BJR) and complimentary breakfast.</p>
+          </div>
+          <button class="btn btn-gold btn-lg" onclick="navigateTo('rooms')">Browse All Rooms</button>
+        </div>
+      </section>
+    </section>
+
+    <!-- ================= PAGE 2: ROOMS & SUITES ================= -->
+    <section id="page-rooms" class="page-view">
+      <header class="subpage-header">
+        <div class="container">
+          <span class="sub-title">RESTFUL SANCTUARIES</span>
+          <h1>Rooms &amp; Suites</h1>
+          <p>Handcrafted Ethiopian detailing, lakeside balconies, and garden serenity.</p>
+        </div>
+      </header>
+
+      <section class="container section">
+        <!-- Filter Controls -->
+        <div class="filter-bar">
+          <button class="filter-btn active" data-filter="all" onclick="filterRooms('all', this)">All Rooms</button>
+          <button class="filter-btn" data-filter="traditional" onclick="filterRooms('traditional', this)">Traditional Ethiopian</button>
+          <button class="filter-btn" data-filter="lakeview" onclick="filterRooms('lakeview', this)">Lake Tana View</button>
+          <button class="filter-btn" data-filter="suite" onclick="filterRooms('suite', this)">Executive Suites</button>
+        </div>
+
+        <!-- Dynamic Rooms Grid (Populated by JavaScript) -->
+        <div class="rooms-grid" id="rooms-container">
+          <!-- Room cards will be injected here automatically by app.js -->
+        </div>
+      </section>
+    </section>
+
+    <!-- ================= PAGE 3: RESERVATIONS & TOURS ================= -->
+    <section id="page-booking" class="page-view">
+      <header class="subpage-header">
+        <div class="container">
+          <span class="sub-title">SEAMLESS RESERVATIONS</span>
+          <h1>Reserve Your Stay &amp; Excursions</h1>
+          <p>Transparent rates, instant confirmation, and custom Lake Tana tour packages.</p>
+        </div>
+      </header>
+
+      <section class="container section">
+        <div class="booking-layout">
+          <!-- Left: Multi-step Booking Form -->
+          <div class="booking-card">
+            <div class="stepper-header">
+              <div class="step-indicator active" id="step-ind-1"><span>1</span> Dates &amp; Room</div>
+              <div class="step-indicator" id="step-ind-2"><span>2</span> Tours &amp; Extras</div>
+              <div class="step-indicator" id="step-ind-3"><span>3</span> Guest Details</div>
+            </div>
+
+            <!-- STEP 1: Dates & Room Selection -->
+            <div class="step-content active" id="step-tab-1">
+              <h3>Select Stay Dates &amp; Suite</h3>
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="book-checkin">Check-In Date</label>
+                  <input type="date" id="book-checkin" onchange="updateBookingCalculation()" />
+                </div>
+                <div class="form-group">
+                  <label for="book-checkout">Check-Out Date</label>
+                  <input type="date" id="book-checkout" onchange="updateBookingCalculation()" />
+                </div>
+                <div class="form-group">
+                  <label for="book-room-type">Choose Room / Suite</label>
+                  <select id="book-room-type" onchange="updateBookingCalculation()">
+                    <!-- Populated dynamically by app.js -->
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="book-guests">Number of Guests</label>
+                  <select id="book-guests" onchange="updateBookingCalculation()">
+                    <option value="1">1 Guest</option>
+                    <option value="2" selected>2 Guests</option>
+                    <option value="3">3 Guests</option>
+                    <option value="4">4 Guests</option>
+                  </select>
+                </div>
+              </div>
+              <div class="step-actions">
+                <div></div>
+                <button class="btn btn-primary" onclick="goToStep(2)">Continue to Tours <i class="fa-solid fa-arrow-right"></i></button>
+              </div>
+            </div>
+
+            <!-- STEP 2: Tours & Experiences Add-ons -->
+            <div class="step-content" id="step-tab-2">
+              <h3>Lake Tana &amp; Nile Experiences (Optional)</h3>
+              <p class="text-muted">Enhance your trip with official hotel guided experiences.</p>
+              
+              <div class="addon-list" id="addon-list-container">
+                <!-- Add-on excursions injected via app.js -->
+              </div>
+
+              <div class="step-actions">
+                <button class="btn btn-outline" onclick="goToStep(1)"><i class="fa-solid fa-arrow-left"></i> Back</button>
+                <button class="btn btn-primary" onclick="goToStep(3)">Guest Information <i class="fa-solid fa-arrow-right"></i></button>
+              </div>
+            </div>
+
+            <!-- STEP 3: Guest Details & Submit -->
+            <div class="step-content" id="step-tab-3">
+              <h3>Guest Information</h3>
+              <form id="reservation-form" onsubmit="handleReservationSubmit(event)">
+                <div class="form-grid">
+                  <div class="form-group">
+                    <label for="guest-first-name">First Name *</label>
+                    <input type="text" id="guest-first-name" required placeholder="e.g. Abebe" />
+                  </div>
+                  <div class="form-group">
+                    <label for="guest-last-name">Last Name *</label>
+                    <input type="text" id="guest-last-name" required placeholder="e.g. Bikila" />
+                  </div>
+                  <div class="form-group">
+                    <label for="guest-email">Email Address *</label>
+                    <input type="email" id="guest-email" required placeholder="you@domain.com" />
+                  </div>
+                  <div class="form-group">
+                    <label for="guest-phone">Phone / WhatsApp *</label>
+                    <input type="tel" id="guest-phone" required placeholder="+251 91 123 4567" />
+                  </div>
+                </div>
+
+                <div class="form-group full-width">
+                  <label for="guest-notes">Special Requests (Dietary, Airport Transfer, Bed Configuration)</label>
+                  <textarea id="guest-notes" rows="3" placeholder="Tell us about flight arrival times or special celebrations..."></textarea>
+                </div>
+
+                <div class="step-actions">
+                  <button type="button" class="btn btn-outline" onclick="goToStep(2)"><i class="fa-solid fa-arrow-left"></i> Back</button>
+                  <button type="submit" class="btn btn-gold btn-lg"><i class="fa-solid fa-check-circle"></i> Confirm Reservation</button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- Right: Live Pricing Summary Invoice -->
+          <aside class="booking-summary-sidebar">
+            <div class="summary-card">
+              <div class="summary-header">
+                <h3>Stay Summary</h3>
+                <span class="badge" id="summary-currency-badge">ETB</span>
+              </div>
+              <div class="summary-body">
+                <div class="summary-row">
+                  <span class="text-muted">Room:</span>
+                  <strong id="sum-room-name">-</strong>
+                </div>
+                <div class="summary-row">
+                  <span class="text-muted">Duration:</span>
+                  <span id="sum-duration">1 Night(s)</span>
+                </div>
+                <div class="summary-row">
+                  <span class="text-muted">Guests:</span>
+                  <span id="sum-guests">2 Guests</span>
+                </div>
+                <div class="summary-row">
+                  <span class="text-muted">Room Subtotal:</span>
+                  <span id="sum-room-subtotal">0</span>
+                </div>
+                <div class="summary-row">
+                  <span class="text-muted">Excursions / Extras:</span>
+                  <span id="sum-addons-subtotal">0</span>
+                </div>
+                <div class="summary-row">
+                  <span class="text-muted">Taxes &amp; Service (15%):</span>
+                  <span id="sum-tax">0</span>
+                </div>
+                <hr />
+                <div class="summary-row total-row">
+                  <span>Grand Total:</span>
+                  <span class="total-price" id="sum-grand-total">0</span>
+                </div>
+              </div>
+              <div class="summary-footer">
+                <p><i class="fa-solid fa-shield-halved"></i> <strong>Pay at Check-In:</strong> No immediate credit card required for reservation hold.</p>
+              </div>
+            </div>
+
+            <!-- Saved Reservations Quick Lookup -->
+            <div class="saved-reservations-box" id="saved-res-box">
+              <h4><i class="fa-solid fa-receipt"></i> Your Active Bookings</h4>
+              <div id="saved-bookings-list">
+                <p class="empty-res-text">No active reservations yet.</p>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </section>
+
+  </main>
+
+  <!-- Interactive Room Details Modal -->
+  <div class="modal-overlay" id="room-modal">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeRoomModal()"><i class="fa-solid fa-xmark"></i></button>
+      <div class="modal-image-wrapper">
+        <img id="modal-room-img" src="" alt="Room detail" />
+      </div>
+      <div class="modal-content">
+        <h2 id="modal-room-title">Room Title</h2>
+        <div class="modal-price" id="modal-room-price">Price</div>
+        <p id="modal-room-desc">Description</p>
+        
+        <h4>Room Amenities:</h4>
+        <div class="modal-amenities" id="modal-room-amenities"></div>
+        
+        <div class="modal-actions">
+          <button class="btn btn-outline" onclick="closeRoomModal()">Close</button>
+          <button class="btn btn-gold" id="modal-book-btn" onclick="bookFromModal()">Book This Room</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Booking Confirmation Voucher Modal -->
+  <div class="modal-overlay" id="confirmation-modal">
+    <div class="modal-card voucher-card">
+      <div class="voucher-header">
+        <div class="success-icon"><i class="fa-solid fa-circle-check"></i></div>
+        <h2>Reservation Confirmed!</h2>
+        <p>Thank you for choosing Tana Hotel Bahir Dar.</p>
+      </div>
+      <div class="voucher-details" id="voucher-details-body">
+        <!-- Filled dynamically by JavaScript -->
+      </div>
+      <div class="voucher-actions">
+        <button class="btn btn-outline" onclick="window.print()"><i class="fa-solid fa-print"></i> Print Voucher</button>
+        <button class="btn btn-primary" onclick="closeConfirmationModal()">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast-container" id="toast-box"></div>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <h3>TANA HOTEL</h3>
+        <p class="footer-desc">
+          Situated on the shores of historic Lake Tana in Bahir Dar, Ethiopia. Offering panoramic island views, authentic Amhara hospitality, and tranquil garden landscapes.
+        </p>
+        <div class="social-links">
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="TripAdvisor"><i class="fa-brands fa-tripadvisor"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul class="footer-links">
+          <li><a href="#" onclick="navigateTo('home')">Home Overview</a></li>
+          <li><a href="#" onclick="navigateTo('rooms')">Suites &amp; Traditional Rooms</a></li>
+          <li><a href="#" onclick="navigateTo('booking')">Lake Tana Boat Charters</a></li>
+          <li><a href="#" onclick="navigateTo('booking')">Blue Nile Falls Excursions</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Location &amp; Contact</h4>
+        <ul class="contact-list">
+          <li><i class="fa-solid fa-location-dot"></i> Kebele 03, Lake Tana Shorefront, Bahir Dar, Ethiopia</li>
+          <li><i class="fa-solid fa-phone"></i> +251 58 220 0230 / +251 91 800 1234</li>
+          <li><i class="fa-solid fa-envelope"></i> reservations@tanahotel-bahirdar.com</li>
+          <li><i class="fa-solid fa-plane-arrival"></i> 15 mins from Bahir Dar Airport (BJR)</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <div class="container bottom-flex">
+        <p>&copy; 2026 Tana Hotel Bahir Dar. All rights reserved.</p>
+        <p class="et-heritage">Proudly Ethiopian &bull; Lake Tana Biosphere Reserve</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Linked Logic File -->
+  <script src="tana.js"></script>
+</body>
+</html>
